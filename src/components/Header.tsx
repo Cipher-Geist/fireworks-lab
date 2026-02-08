@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTheme, ThemeName } from '../hooks/useTheme';
 
@@ -9,6 +10,7 @@ const themes: { name: ThemeName; label: string }[] = [
 
 export default function Header() {
 	const { theme, setTheme } = useTheme();
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
 		<header className="header">
@@ -27,9 +29,20 @@ export default function Header() {
 					</svg>
 					fireworks-lab
 				</NavLink>
-				<div className="header-nav">
-					<NavLink to="/" end>Solver</NavLink>
-					<NavLink to="/about">About</NavLink>
+				<button
+					className="burger-btn"
+					onClick={() => setMenuOpen((v) => !v)}
+					aria-label="Toggle menu"
+				>
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+						<line x1="3" y1="6" x2="21" y2="6" />
+						<line x1="3" y1="12" x2="21" y2="12" />
+						<line x1="3" y1="18" x2="21" y2="18" />
+					</svg>
+				</button>
+				<div className={`header-nav${menuOpen ? ' open' : ''}`}>
+					<NavLink to="/" end onClick={() => setMenuOpen(false)}>Solver</NavLink>
+					<NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink>
 					<div className="theme-toggle">
 						{themes.map((t) => (
 							<button
