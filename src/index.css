@@ -292,6 +292,10 @@ a:hover {
 	padding: 0;
 }
 
+.collapse-chevron {
+	display: none;
+}
+
 /* Formula Input */
 
 .formula-section {
@@ -540,6 +544,36 @@ a:hover {
 
 	.algo-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.card-collapsible .card-header {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		user-select: none;
+	}
+
+	.card-collapsible .collapse-chevron {
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-right: 2px solid var(--text-muted);
+		border-bottom: 2px solid var(--text-muted);
+		transform: rotate(45deg);
+		transition: transform var(--transition-fast);
+	}
+
+	.card-collapsible.collapsed .collapse-chevron {
+		transform: rotate(-135deg);
+	}
+
+	.card-collapsible.collapsed .card-body {
+		display: none;
+	}
+
+	.stat-item-wide {
+		grid-column: 1 / -1;
 	}
 }
 

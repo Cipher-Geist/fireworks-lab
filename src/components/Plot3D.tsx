@@ -262,7 +262,7 @@ export default function Plot3D({ surfaceData, fireworkPositions, bestPosition, t
 				z: [bestPosition.z],
 				mode: 'markers',
 				marker: {
-					size: 8,
+					size: 6,
 					color: colors.best,
 					symbol: 'diamond',
 					line: { width: 2, color: colors.bestLine },

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AlgorithmVariant, SolverSettings } from '../hooks/useSolver';
 
 interface Props {
@@ -13,6 +14,7 @@ const VARIANTS: { value: AlgorithmVariant; label: string; desc: string }[] = [
 ];
 
 export default function AlgorithmPanel({ settings, onSettingsChange, isRunning }: Props) {
+	const [collapsed, setCollapsed] = useState(false);
 	const update = (key: keyof SolverSettings, value: any) => {
 		onSettingsChange({ ...settings, [key]: value });
 	};
@@ -23,8 +25,11 @@ export default function AlgorithmPanel({ settings, onSettingsChange, isRunning }
 	};
 
 	return (
-		<div className="card">
-			<div className="card-header">Algorithm</div>
+		<div className={`card card-collapsible${collapsed ? ' collapsed' : ''}`}>
+			<div className="card-header" onClick={() => setCollapsed((v) => !v)}>
+				Algorithm
+				<span className="collapse-chevron" />
+			</div>
 			<div className="card-body">
 				<ul className="algo-variant-list">
 					{VARIANTS.map((v) => (

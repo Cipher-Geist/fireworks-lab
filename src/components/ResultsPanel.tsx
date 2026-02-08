@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 interface Props {
 	currentStep: number;
 	totalSteps: number;
@@ -23,11 +25,15 @@ export default function ResultsPanel({
 	disabled,
 	error,
 }: Props) {
+	const [collapsed, setCollapsed] = useState(false);
 	const progress = totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0;
 
 	return (
-		<div className="card">
-			<div className="card-header">Results</div>
+		<div className={`card card-collapsible${collapsed ? ' collapsed' : ''}`}>
+			<div className="card-header" onClick={() => setCollapsed((v) => !v)}>
+				Results
+				<span className="collapse-chevron" />
+			</div>
 			<div className="card-body">
 				<div className="results-stats">
 					<div className="stat-item">
@@ -42,7 +48,7 @@ export default function ResultsPanel({
 						</div>
 						<div className="stat-label">Best Quality</div>
 					</div>
-					<div className="stat-item">
+					<div className="stat-item stat-item-wide">
 						<div className="stat-value">
 							{bestPosition
 								? `(${bestPosition.x.toFixed(3)}, ${bestPosition.y.toFixed(3)})`
