@@ -14,6 +14,7 @@ const PRESETS: Preset[] = [
 	{ name: 'Ackley', formula: '-20*exp(-0.2*sqrt(0.5*(x^2+y^2))) - exp(0.5*(cos(2*pi*x)+cos(2*pi*y))) + e + 20', xRange: [-5, 5], yRange: [-5, 5] },
 	{ name: 'Beale', formula: '(1.5-x+x*y)^2 + (2.25-x+x*y^2)^2 + (2.625-x+x*y^3)^2', xRange: [-4.5, 4.5], yRange: [-4.5, 4.5] },
 	{ name: 'Himmelblau', formula: '(x^2+y-11)^2 + (x+y^2-7)^2', xRange: [-5, 5], yRange: [-5, 5] },
+ { name: 'Easom', formula: '-cos(x)*cos(y)*exp(-((x-pi)^2 - (y-pi)^2))', xRange: [-5, 5], yRange: [-5, 5] }
 ];
 
 interface Props {
