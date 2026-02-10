@@ -28,7 +28,7 @@ interface Props {
 }
 
 export default function FormulaInput({ formula, xRange, yRange, error, onFormulaChange, onXRangeChange, onYRangeChange }: Props) {
-	const [activePreset, setActivePreset] = useState<string | null>(null);
+	const [activePreset, setActivePreset] = useState<string | null>('Rastrigin');
 
 	const selectPreset = useCallback((preset: Preset) => {
 		onFormulaChange(preset.formula);

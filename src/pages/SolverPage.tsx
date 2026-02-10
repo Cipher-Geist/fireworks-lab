@@ -7,9 +7,9 @@ import { useSolver, SolverSettings } from '../hooks/useSolver';
 import { useTheme } from '../hooks/useTheme';
 import { validateFormula, generateSurfaceData } from '../utils/formulaParser';
 
-const DEFAULT_FORMULA = 'x^2 + y^2';
-const DEFAULT_X_RANGE: [number, number] = [-5, 5];
-const DEFAULT_Y_RANGE: [number, number] = [-5, 5];
+const DEFAULT_FORMULA = '20 + x^2 - 10*cos(2*pi*x) + y^2 - 10*cos(2*pi*y)';
+const DEFAULT_X_RANGE: [number, number] = [-5.12, 5.12];
+const DEFAULT_Y_RANGE: [number, number] = [-5.12, 5.12];
 
 const DEFAULT_SETTINGS: SolverSettings = {
 	variant: 'fwa',
@@ -75,6 +75,7 @@ export default function SolverPage() {
 						<label className="toggle-label">
 							<span>Types</span>
 							<button
+								type="button"
 								className={`toggle-switch${showTypes ? ' active' : ''}`}
 								onClick={() => setShowTypes((v) => !v)}
 								aria-pressed={showTypes}
@@ -85,6 +86,7 @@ export default function SolverPage() {
 						<label className="toggle-label">
 							<span>Links</span>
 							<button
+								type="button"
 								className={`toggle-switch${showLinks ? ' active' : ''}`}
 								onClick={() => setShowLinks((v) => !v)}
 								aria-pressed={showLinks}
