@@ -42,7 +42,7 @@
 	--transition-normal: 250ms ease;
 }
 
-[data-theme="synthwave"] {
+[data-theme='synthwave'] {
 	--bg-primary: #0f0728;
 	--bg-secondary: #170b3b;
 	--bg-tertiary: #1f1048;
@@ -63,7 +63,7 @@
 	--glow-secondary: rgba(255, 184, 108, 0.15);
 }
 
-[data-theme="terminal"] {
+[data-theme='terminal'] {
 	--bg-primary: #000000;
 	--bg-secondary: #0a0a0a;
 	--bg-tertiary: #141414;
@@ -86,7 +86,9 @@
 
 /* Reset */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -327,7 +329,9 @@ a:hover {
 	border-radius: var(--radius-md);
 	color: var(--text-primary);
 	outline: none;
-	transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	transition:
+		border-color var(--transition-fast),
+		box-shadow var(--transition-fast);
 }
 
 .formula-input:focus {
@@ -604,7 +608,7 @@ a:hover {
 	color: var(--text-muted);
 }
 
-.algo-variant input[type="radio"] {
+.algo-variant input[type='radio'] {
 	appearance: none;
 	width: 16px;
 	height: 16px;
@@ -615,7 +619,7 @@ a:hover {
 	flex-shrink: 0;
 }
 
-.algo-variant input[type="radio"]:checked {
+.algo-variant input[type='radio']:checked {
 	border-color: var(--accent-primary);
 	background: var(--accent-primary);
 	box-shadow: inset 0 0 0 3px var(--bg-secondary);
@@ -740,7 +744,9 @@ a:hover {
 }
 
 .btn-primary:hover:not(:disabled) {
-	box-shadow: 0 0 24px var(--glow-primary), 0 0 48px var(--glow-primary);
+	box-shadow:
+		0 0 24px var(--glow-primary),
+		0 0 48px var(--glow-primary);
 	transform: translateY(-1px);
 }
 

@@ -9,12 +9,27 @@ interface Preset {
 
 const PRESETS: Preset[] = [
 	{ name: 'Sphere', formula: 'x^2 + y^2', xRange: [-5, 5], yRange: [-5, 5] },
-	{ name: 'Rastrigin', formula: '20 + x^2 - 10*cos(2*pi*x) + y^2 - 10*cos(2*pi*y)', xRange: [-5.12, 5.12], yRange: [-5.12, 5.12] },
+	{
+		name: 'Rastrigin',
+		formula: '20 + x^2 - 10*cos(2*pi*x) + y^2 - 10*cos(2*pi*y)',
+		xRange: [-5.12, 5.12],
+		yRange: [-5.12, 5.12],
+	},
 	{ name: 'Rosenbrock', formula: '(1-x)^2 + 100*(y-x^2)^2', xRange: [-2, 2], yRange: [-1, 3] },
-	{ name: 'Ackley', formula: '-20*exp(-0.2*sqrt(0.5*(x^2+y^2))) - exp(0.5*(cos(2*pi*x)+cos(2*pi*y))) + e + 20', xRange: [-5, 5], yRange: [-5, 5] },
-	{ name: 'Beale', formula: '(1.5-x+x*y)^2 + (2.25-x+x*y^2)^2 + (2.625-x+x*y^3)^2', xRange: [-4.5, 4.5], yRange: [-4.5, 4.5] },
+	{
+		name: 'Ackley',
+		formula: '-20*exp(-0.2*sqrt(0.5*(x^2+y^2))) - exp(0.5*(cos(2*pi*x)+cos(2*pi*y))) + e + 20',
+		xRange: [-5, 5],
+		yRange: [-5, 5],
+	},
+	{
+		name: 'Beale',
+		formula: '(1.5-x+x*y)^2 + (2.25-x+x*y^2)^2 + (2.625-x+x*y^3)^2',
+		xRange: [-4.5, 4.5],
+		yRange: [-4.5, 4.5],
+	},
 	{ name: 'Himmelblau', formula: '(x^2+y-11)^2 + (x+y^2-7)^2', xRange: [-5, 5], yRange: [-5, 5] },
-	{ name: 'Easom', formula: '-cos(x)*cos(y)*exp(-((x-pi)^2 + (y-pi)^2))', xRange: [-5, 5], yRange: [-5, 5] }
+	{ name: 'Easom', formula: '-cos(x)*cos(y)*exp(-((x-pi)^2 + (y-pi)^2))', xRange: [-5, 5], yRange: [-5, 5] },
 ];
 
 interface Props {
@@ -27,20 +42,33 @@ interface Props {
 	onYRangeChange: (range: [number, number]) => void;
 }
 
-export default function FormulaInput({ formula, xRange, yRange, error, onFormulaChange, onXRangeChange, onYRangeChange }: Props) {
+export default function FormulaInput({
+	formula,
+	xRange,
+	yRange,
+	error,
+	onFormulaChange,
+	onXRangeChange,
+	onYRangeChange,
+}: Props) {
 	const [activePreset, setActivePreset] = useState<string | null>('Rastrigin');
 
-	const selectPreset = useCallback((preset: Preset) => {
-		onFormulaChange(preset.formula);
-		onXRangeChange(preset.xRange);
-		onYRangeChange(preset.yRange);
-		setActivePreset(preset.name);
-	}, [onFormulaChange, onXRangeChange, onYRangeChange]);
+	const selectPreset = useCallback(
+		(preset: Preset) => {
+			onFormulaChange(preset.formula);
+			onXRangeChange(preset.xRange);
+			onYRangeChange(preset.yRange);
+			setActivePreset(preset.name);
+		},
+		[onFormulaChange, onXRangeChange, onYRangeChange],
+	);
 
 	return (
 		<div className="formula-section">
 			<div className="formula-row">
-				<label htmlFor="formula-input" className="formula-label">f(x,y) =</label>
+				<label htmlFor="formula-input" className="formula-label">
+					f(x,y) =
+				</label>
 				<input
 					id="formula-input"
 					type="text"

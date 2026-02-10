@@ -76,7 +76,9 @@ export default function AlgorithmPanel({ settings, onSettingsChange, isRunning }
 							type="number"
 							className="param-input"
 							value={settings.explosionSparksNumberModifier}
-							onChange={(e) => update('explosionSparksNumberModifier', parseIntOrDefault(e.target.value, 50))}
+							onChange={(e) =>
+								update('explosionSparksNumberModifier', parseIntOrDefault(e.target.value, 50))
+							}
 							disabled={isRunning}
 							min={5}
 							max={200}

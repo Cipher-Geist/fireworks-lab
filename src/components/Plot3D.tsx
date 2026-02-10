@@ -110,7 +110,15 @@ interface Props {
 	showLinks: boolean;
 }
 
-export default function Plot3D({ surfaceData, fireworkPositions, bestPosition, trailPositions, theme, showTypes, showLinks }: Props) {
+export default function Plot3D({
+	surfaceData,
+	fireworkPositions,
+	bestPosition,
+	trailPositions,
+	theme,
+	showTypes,
+	showLinks,
+}: Props) {
 	const plotRef = useRef<HTMLDivElement>(null);
 	const cameraRef = useRef<any>(null);
 	const initializedRef = useRef(false);

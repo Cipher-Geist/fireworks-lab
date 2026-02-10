@@ -15,7 +15,7 @@ export function generateSurfaceData(
 	expression: string,
 	xRange: [number, number],
 	yRange: [number, number],
-	resolution: number = 60
+	resolution: number = 60,
 ): { x: number[]; y: number[]; z: number[][] } {
 	const code = compile(expression);
 

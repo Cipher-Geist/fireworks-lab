@@ -72,28 +72,30 @@ export default function SolverPage() {
 				<div className="card-header viz-header">
 					<span>Visualization</span>
 					<div className="viz-toggles">
-						<label className="toggle-label">
+						<div className="toggle-label">
 							<span>Types</span>
 							<button
 								type="button"
 								className={`toggle-switch${showTypes ? ' active' : ''}`}
 								onClick={() => setShowTypes((v) => !v)}
-								aria-pressed={showTypes}
+								aria-pressed={showTypes ? 'true' : 'false'}
+								aria-label="Toggle types"
 							>
 								<span className="toggle-knob" />
 							</button>
-						</label>
-						<label className="toggle-label">
+						</div>
+						<div className="toggle-label">
 							<span>Links</span>
 							<button
 								type="button"
 								className={`toggle-switch${showLinks ? ' active' : ''}`}
 								onClick={() => setShowLinks((v) => !v)}
-								aria-pressed={showLinks}
+								aria-pressed={showLinks ? 'true' : 'false'}
+								aria-label="Toggle links"
 							>
 								<span className="toggle-knob" />
 							</button>
-						</label>
+						</div>
 					</div>
 				</div>
 				<div className="card-body card-body-flush">
@@ -110,11 +112,7 @@ export default function SolverPage() {
 			</div>
 
 			<div className="algo-grid">
-				<AlgorithmPanel
-					settings={settings}
-					onSettingsChange={setSettings}
-					isRunning={solver.isRunning}
-				/>
+				<AlgorithmPanel settings={settings} onSettingsChange={setSettings} isRunning={solver.isRunning} />
 				<ResultsPanel
 					currentStep={solver.currentStep}
 					totalSteps={solver.totalSteps}

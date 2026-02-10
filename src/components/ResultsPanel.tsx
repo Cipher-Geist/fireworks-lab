@@ -43,16 +43,12 @@ export default function ResultsPanel({
 						<div className="stat-label">Step</div>
 					</div>
 					<div className="stat-item">
-						<div className="stat-value">
-							{bestQuality !== null ? bestQuality.toExponential(4) : '—'}
-						</div>
+						<div className="stat-value">{bestQuality !== null ? bestQuality.toExponential(4) : '—'}</div>
 						<div className="stat-label">Best Quality</div>
 					</div>
 					<div className="stat-item stat-item-wide">
 						<div className="stat-value">
-							{bestPosition
-								? `(${bestPosition.x.toFixed(3)}, ${bestPosition.y.toFixed(3)})`
-								: '(—, —)'}
+							{bestPosition ? `(${bestPosition.x.toFixed(3)}, ${bestPosition.y.toFixed(3)})` : '(—, —)'}
 						</div>
 						<div className="stat-label">Best Position</div>
 					</div>
@@ -62,9 +58,7 @@ export default function ResultsPanel({
 					<div className="progress-fill" style={{ '--progress': `${progress}%` } as React.CSSProperties} />
 				</div>
 
-				{error && (
-					<div className="solver-error">{error}</div>
-				)}
+				{error && <div className="solver-error">{error}</div>}
 
 				<div className="btn-group">
 					{!isRunning ? (

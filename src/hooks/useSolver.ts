@@ -80,12 +80,7 @@ export function useSolver() {
 	}, [stop]);
 
 	const solve = useCallback(
-		(
-			formulaStr: string,
-			xRange: [number, number],
-			yRange: [number, number],
-			settings: SolverSettings
-		) => {
+		(formulaStr: string, xRange: [number, number], yRange: [number, number], settings: SolverSettings) => {
 			stop();
 			stoppedRef.current = false;
 
@@ -106,12 +101,7 @@ export function useSolver() {
 					return evalFn(x, y);
 				};
 
-				const problem = new Problem(
-					[dimX, dimY],
-					initialRanges,
-					targetFunction,
-					ProblemTarget.Minimum
-				);
+				const problem = new Problem([dimX, dimY], initialRanges, targetFunction, ProblemTarget.Minimum);
 				const stopCondition = new StepCounterStopCondition(settings.maxSteps);
 				const randomizer = new Randomizer(RandomizerType.MersenneTwister);
 
@@ -237,7 +227,7 @@ export function useSolver() {
 				}));
 			}
 		},
-		[stop]
+		[stop],
 	);
 
 	return { ...state, solve, stop, reset };
